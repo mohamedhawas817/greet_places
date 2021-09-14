@@ -4,6 +4,7 @@ import '../widget/image_input.dart';
 import 'dart:io';
 import '../provider/greet_places.dart';
 import 'package:path_provider/path_provider.dart';
+import '../widget/location.dart';
 
 
 class AddPlaces extends StatefulWidget {
@@ -55,7 +56,9 @@ class _AddPlacesState extends State<AddPlaces> {
                       controller: _titleController,
                     ),
                     SizedBox(),
-                    ImageInput(selectImage)
+                    ImageInput(selectImage),
+                    SizedBox(height: 10,),
+                    LocationInput()
 
                   ],
                 ),

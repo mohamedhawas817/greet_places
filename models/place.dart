@@ -5,11 +5,11 @@ import 'package:flutter/foundation.dart';
 class PlaceLocation {
 
 
-  final String long;
-  final String latit;
-  String address;
+  final double long;
+  final double latit;
+  final String address;
 
-  PlaceLocation({@required this.long, @required this.latit, this.address });
+  const PlaceLocation({@required this.long, @required this.latit, this.address });
 
 }
 
