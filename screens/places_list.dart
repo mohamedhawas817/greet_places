@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greetplaces/screens/place_detail_screen.dart';
 import 'package:provider/provider.dart';
 import '../screens/add_place_screen.dart';
 import '../provider/greet_places.dart';
@@ -26,6 +27,10 @@ class PlacesList extends StatelessWidget {
             itemBuilder: (context, index) => ListTile(
               leading: CircleAvatar(backgroundImage: FileImage(data.items[index].image),),
               title: Text(data.items[index].title),
+              subtitle: Text(data.items[index].location.address),
+              onTap: () {
+                Navigator.of(context).pushNamed(PlaceDetail.id, arguments: data.items[index].id);
+              },
             ),
         )  ),
       )

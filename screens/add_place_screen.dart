@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:greetplaces/models/place.dart';
 import 'package:provider/provider.dart';
 import '../widget/image_input.dart';
 import 'dart:io';
@@ -20,16 +21,23 @@ class _AddPlacesState extends State<AddPlaces> {
   final _key = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   File _pickedImage;
+  PlaceLocation _pickedlocation;
 
   void selectImage(File pickedFile) {
     _pickedImage = pickedFile;
   }
 
+  void _selectplace(double lat, double lng) {
+  _pickedlocation = PlaceLocation(long: lng, latit: lat);
+
+  }
+
+
   void _savePlace() {
-    if(_titleController.text.isEmpty || _pickedImage == null) {
+    if(_titleController.text.isEmpty || _pickedImage == null || _pickedlocation ==null) {
           return;
     }
-    Provider.of<GeeetPlace>(context, listen: false).addPlace(_titleController.text, _pickedImage);
+    Provider.of<GeeetPlace>(context, listen: false).addPlace(_titleController.text, _pickedImage, _pickedlocation);
     Navigator.pop(context);
     print("got here");
 
@@ -58,7 +66,7 @@ class _AddPlacesState extends State<AddPlaces> {
                     SizedBox(),
                     ImageInput(selectImage),
                     SizedBox(height: 10,),
-                    LocationInput()
+                    LocationInput(_selectplace)
 
                   ],
                 ),

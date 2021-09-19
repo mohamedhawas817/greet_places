@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/foundation.dart';
+import 'package:greetplaces/screens/place_detail_screen.dart';
 import 'package:provider/provider.dart';
 import 'package:greetplaces/provider/greet_places.dart';
 import './screens/places_list.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         home: PlacesList() ,
         routes: {
           AddPlaces.id: (context) => AddPlaces(),
+          PlaceDetail.id: (context) => PlaceDetail()
         },
       ),
     );
